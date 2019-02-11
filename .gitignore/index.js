@@ -30,7 +30,7 @@ client.on("guildMemberAdd", (member) => {
     const welcomemsg = new Discord.RichEmbed()
     .setTitle("👐 Bienvenue 👐")
     .setColor("#5599ff")
-    .setDescription("Bienvenue <@${member.user.id}> sur le serveur de la team NoobFactory !")
+    .setDescription(`Bienvenue <@${member.user.id}> sur le serveur de la team NoobFactory !`)
     .setThumbnail(welcomeimage)
     .setFooter("Bot de TheMisterObvious");
     
