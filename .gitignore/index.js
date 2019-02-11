@@ -21,7 +21,7 @@ client.on("guildMemberAdd", (member) => {
     .setDescription("Pour rentré sur le serveur, va dans le salon [#vérification] et envoie le code suivant \"nf5482\", à bientôt sur le serveur de NoobFactory 👋 !")
     .setFooter("Bot de TheMisterObvious");
     
-    member.addRole("");
+    member.addRoles(["544598999177625660", "544600219396997141"]);
     member.sendMessage(welcome);
 });
     
