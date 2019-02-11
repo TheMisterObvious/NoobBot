@@ -21,7 +21,7 @@ client.on("guildMemberAdd", (member) => {
     .setDescription("Pour rentré sur le serveur, va dans le salon [#vérification] et rentre le code suivant \"nf5482\"")
     .setFooter("Bot de TheMisterObvious");
     
-    newUsers.send(welcome);
+    member.sendMessage(welcome);
 });
     
 
