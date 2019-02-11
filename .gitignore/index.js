@@ -38,7 +38,7 @@ client.on("message", message => {
 client.on("message", message => {
     if (message.content.startsWith(prefix +"clear" || prefix +"purge")) {
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-            message.channel.sendMessage("**Vous n'avez pas la permission \`MANAGE_MESSAGES\` !!!**);
+            message.channel.sendMessage("**Vous n'avez pas la permission \`MANAGE_MESSAGES\` !!!**");
         } else {
         var nombre = message.content.substring(8);
             
