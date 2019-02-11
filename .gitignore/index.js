@@ -14,7 +14,7 @@ var servercount = client.guilds.size;
 console.log('[!]Connexion en cours... \n[!]Veuillez Patienté! \n[!]Les évenement sont après ! :)  \n[!]Les préfix actuelle:  ' + prefix + "\n[!]Mentions = " + mention + "\n[!]Nombre de membres: " + memberCount + "\n[!]Nombre de serveurs: " + servercount);
 });
 
-//Welcome
+//Bienvenue
 
 client.on("guildMemberAdd", (member) => {
     
@@ -23,13 +23,13 @@ client.on("guildMemberAdd", (member) => {
     
     const welcomedm = new Discord.RichEmbed()
     .setTitle("👐 Bienvenue 👐")
-    .setColor("#5599ff")
+    .setColor("#00ff00")
     .setDescription("Pour rentré sur le serveur, va dans le salon [#vérification] et envoie le code suivant \"nf5482\", à bientôt sur le serveur de NoobFactory 👋 !")
     .setFooter("Bot de TheMisterObvious");
     
     const welcomemsg = new Discord.RichEmbed()
     .setTitle("👐 Bienvenue 👐")
-    .setColor("#5599ff")
+    .setColor("#00ff00")
     .setDescription(`Bienvenue <@${member.user.id}> sur le serveur de la team NoobFactory !`)
     .setThumbnail(welcomeimage)
     .setFooter("Bot de TheMisterObvious");
@@ -38,6 +38,25 @@ client.on("guildMemberAdd", (member) => {
     member.sendMessage(welcomedm);
     welcomechannel.send(welcomemsg);
 });
+
+//Au revoir
+
+client.on("guildMemberRemove", (member) => {
+    
+    var goodbyechannel = member.guild.channels.find("id", "544622157062209606");
+    var goodbyeimage = member.user.displayAvatarURL;
+    
+    const goodbyemsg = new Discord.RichEmbed()
+    .setTitle("👋 Au revoir 👋")
+    .setColor("#ff0000")
+    .setDescription(`Au revoir <@${member.user.id}> tu nous manquera 😭 !`)
+    .setThumbnail(goodbyeimage)
+    .setFooter("Bot de TheMisterObvious");
+    
+    goodbyechannel.send(goodbyemsg);
+});
+    
+    
     
 //Auto-Rôle + FireWall
 
