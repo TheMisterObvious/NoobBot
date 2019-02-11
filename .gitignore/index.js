@@ -15,6 +15,11 @@ console.log('[!]Connexion en cours... \n[!]Veuillez Patienté! \n[!]Les éveneme
 });
 
 client.on("message", message => {
-  if 
+  if (message.channel.getID === "544560985457819655") {
+      if (message.content ===  "nf5482") {
+          console.log("ok");
+      }
+  }
+});
 
 client.login(process.env.TOKEN);
