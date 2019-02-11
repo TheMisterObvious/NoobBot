@@ -35,7 +35,7 @@ client.on("guildMemberAdd", (member) => {
     .setFooter("Bot de TheMisterObvious");
     
     member.addRoles(["544598999177625660", "544600219396997141"]);
-    member.sendMessage(welcomedm);
+    member.send(welcomedm);
     welcomechannel.send(welcomemsg);
 });
 
