@@ -14,17 +14,32 @@ var servercount = client.guilds.size;
 console.log('[!]Connexion en cours... \n[!]Veuillez Patienté! \n[!]Les évenement sont après ! :)  \n[!]Les préfix actuelle:  ' + prefix + "\n[!]Mentions = " + mention + "\n[!]Nombre de membres: " + memberCount + "\n[!]Nombre de serveurs: " + servercount);
 });
 
+//Welcome
+
 client.on("guildMemberAdd", (member) => {
-    const welcome = new Discord.RichEmbed()
+    
+    var welcomechannel = member.guild.channels.find("id", "544622157062209606");
+    var welcomeimage = member.user.displayAvatarURL;
+    
+    const welcomedm = new Discord.RichEmbed()
     .setTitle("👐 Bienvenue 👐")
     .setColor("#5599ff")
     .setDescription("Pour rentré sur le serveur, va dans le salon [#vérification] et envoie le code suivant \"nf5482\", à bientôt sur le serveur de NoobFactory 👋 !")
     .setFooter("Bot de TheMisterObvious");
     
+    const welcomemsg = new Discord.RichEmbed()
+    .setTitle("👐 Bienvenue 👐")
+    .setColor("#5599ff")
+    .setDescription("Bienvenue <@${member.user.id}> sur le serveur de la team NoobFactory !")
+    .setThumbnail(welcomeimage)
+    .setFooter("Bot de TheMisterObvious");
+    
     member.addRoles(["544598999177625660", "544600219396997141"]);
-    member.sendMessage(welcome);
+    member.sendMessage(welcomedm);
+    welcomechannel.send(welcomemsg);
 });
     
+//Auto-Rôle + FireWall
 
 client.on("message", message => {
     if (message.channel.id === "544613382548881408") {
@@ -35,6 +50,8 @@ client.on("message", message => {
       }
     }
 });
+
+//Clear
 
 client.on("message", message => {
     if (message.content.startsWith(prefix +"clear" || prefix +"purge")) {
