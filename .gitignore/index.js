@@ -30,6 +30,7 @@ client.on("message", message => {
     if (message.channel.id === "544613382548881408") {
       if (message.content ===  "nf5482") {   
           message.member.addRole("544580348508373002");
+          message.member.removeRole("544600219396997141");
           message.delete(1);
       }
     }
