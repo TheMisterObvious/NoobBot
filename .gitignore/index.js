@@ -80,7 +80,7 @@ client.on("message", message => {
         var clear = message.content.substring(8);
         clear++;
             
-        message.delete();
+        message.delete(3);
         }
     }
 });
