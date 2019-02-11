@@ -30,7 +30,7 @@ client.on("message", message => {
     if (message.channel.id === "544613382548881408") {
       if (message.content ===  "nf5482") {   
           message.member.addRole("544580348508373002");
-          message.channel.delete(1);
+          message.delete(1);
       }
     }
 });
@@ -42,7 +42,7 @@ client.on("message", message => {
         } else {
         var nombre = message.content.substring(8);
             
-        message.channel.delete(nombre + 1);
+        message.delete(nombre + 1);
         }
     }
 });
