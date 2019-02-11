@@ -79,7 +79,7 @@ client.on("message", message => {
         } else {
         var nombre = message.content.substring(8);
             
-        message.delete(nombre + 1);
+        message.delete(nombre++);
         }
     }
 });
