@@ -17,7 +17,7 @@ console.log('[!]Connexion en cours... \n[!]Veuillez Patienté! \n[!]Les éveneme
 client.on("message", message => {
   if (message.channel.id === "544560985457819655") {
       if (message.content ===  "nf5482") {          
-          message.guildMember.addRole("544580348508373002");
+          message.member.addRole("544580348508373002");
       }
   }
 });
