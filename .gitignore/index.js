@@ -80,7 +80,7 @@ client.on("message", message => {
         var nombrea = message.content.substring(8);
         var nombreb = nombrea++;
             
-        console.log(nombreb);
+        console.log(nombrea);
         //message.delete();
         }
     }
