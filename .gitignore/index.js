@@ -77,9 +77,12 @@ client.on("message", message => {
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {
             message.channel.sendMessage("**Vous n'avez pas la permission \`MANAGE_MESSAGES\` !!!**");
         } else {
-        var nombre = message.content.substring(8);
+        var nombrea = message.content.substring(8);
+        var nombreb = nombrea + 1;
             
-        message.delete(nombre++);
+        console.log(nombrea);
+        console.log(nombreb);
+        //message.delete();
         }
     }
 });
