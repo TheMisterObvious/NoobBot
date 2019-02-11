@@ -18,9 +18,10 @@ client.on("guildMemberAdd", (member) => {
     const welcome = new Discord.RichEmbed()
     .setTitle("👐 Bienvenue 👐")
     .setColor("#5599ff")
-    .setDescription("Pour rentré sur le serveur, va dans le salon [#vérification] et rentre le code suivant \"nf5482\"")
+    .setDescription("Pour rentré sur le serveur, va dans le salon [#vérification] et envoie le code suivant \"nf5482\", à bientôt sur le serveur de NoobFactory 👋 !")
     .setFooter("Bot de TheMisterObvious");
     
+    member.addRole("");
     member.sendMessage(welcome);
 });
     
@@ -32,5 +33,9 @@ client.on("message", message => {
       }
     }
 });
+
+client.on("message", message => {
+    if (message.content.startWith(prefix +"clear" || prefix +"purge")) {
+        if 
 
 client.login(process.env.TOKEN);
