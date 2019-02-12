@@ -75,12 +75,49 @@ client.on("message", message => {
 client.on("message", message => {
     if (message.content.startsWith(prefix +"clear" || prefix +"purge")) {
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-            message.channel.sendMessage("**Vous n'avez pas la permission \`MANAGE_MESSAGES\` !!!**");
+            message.channel.send("**Vous n'avez pas la permission \`MANAGE_MESSAGES\` !**");
         } else {
         var clear = message.content.substring(8);
         clear++;
             
         message.channel.bulkDelete(3);
+        }
+    }
+});
+
+client.on("message", message => {
+    if (message.content.startsWith(prefix +"f")) {
+        if (message.content.substring(4) === "promote") {
+            if (!message.member.hasPermission("MANAGE_ROLES")) {
+                message.channel.send("**Vous n'avez pas la permission \`MANAGE_ROLES\` !**");
+            }
+            if (!message.mentions.users.size === 0) {
+                message.channel.send("**Merci d'entrer la mention d'un utilisateur !**");
+            }
+            if (message.guild.member(message.mentions.users.first()).hasRole("544294721254850605")) {
+                message.guild.member(message.mentions.users.first()).addRole("544294361383305245");
+                message.guild.member(message.mentions.users.first()).removeRole("544294721254850605");
+            }
+            if (message.guild.member(message.mentions.users.first()).hasRole("544294361383305245")) {
+                message.guild.member(message.mentions.users.first()).addRole("544293390112784384");
+                message.guild.member(message.mentions.users.first()).removeRole("544294361383305245");
+            }
+        }
+        if (message.content.substring(4) === "unmote") {
+            if (!message.member.hasPermission("MANAGE_ROLES")) {
+                message.channel.send("**Vous n'avez pas la permission \`MANAGE_ROLES\` !**");
+            }
+            if (!message.mentions.users.size === 0) {
+                message.channel.send("**Merci d'entrer la mention d'un utilisateur !**");
+            }
+            if (message.guild.member(message.mentions.users.first()).hasRole("544294361383305245")) {
+                message.guild.member(message.mentions.users.first()).addRole("544294721254850605");
+                message.guild.member(message.mentions.users.first()).removeRole("544294361383305245");
+            }
+            if (message.guild.member(message.mentions.users.first()).hasRole("544293390112784384")) {
+                message.guild.member(message.mentions.users.first()).addRole("544294361383305245");
+                message.guild.member(message.mentions.users.first()).removeRole("544293390112784384");
+            }
         }
     }
 });
