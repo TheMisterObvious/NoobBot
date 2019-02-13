@@ -94,13 +94,15 @@ client.on("message", message => {
             if (!message.mentions.users.size === 0) {
                 message.channel.send("**Merci d'entrer la mention d'un utilisateur !**");
             }
-            if (message.guild.member(message.mentions.users.first()).roles.has("544294721254850605")) {
-                message.guild.member(message.mentions.users.first()).addRole("544294361383305245");
-                message.guild.member(message.mentions.users.first()).removeRole("544294721254850605");
+            var pmember = message.mentions.members.first();
+            
+            if (pmember.roles.has("544294721254850605")) {
+                pmember.addRole("544294361383305245");
+                pmember.removeRole("544294721254850605");
             }
-            if (message.guild.member(message.mentions.users.first()).roles.has("544294361383305245")) {
-                message.guild.member(message.mentions.users.first()).addRole("544293390112784384");
-                message.guild.member(message.mentions.users.first()).removeRole("544294361383305245");
+            if (pmember.roles.has("544294361383305245")) {
+                pmember.addRole("544293390112784384");
+                pmember.removeRole("544294361383305245");
             }
         }
         if (message.content.substring(4) === "unmote") {
@@ -110,13 +112,15 @@ client.on("message", message => {
             if (!message.mentions.users.size === 0) {
                 message.channel.send("**Merci d'entrer la mention d'un utilisateur !**");
             }
-            if (message.guild.member(message.mentions.users.first()).roles.has("544294361383305245")) {
-                message.guild.member(message.mentions.users.first()).addRole("544294721254850605");
-                message.guild.member(message.mentions.users.first()).removeRole("544294361383305245");
+            var umember = message.mentions.members.first();
+            
+            if (umember.roles.has("544294361383305245")) {
+                umember.addRole("544294721254850605");
+                umember.removeRole("544294361383305245");
             }
-            if (message.guild.member(message.mentions.users.first()).roles.has("544293390112784384")) {
-                message.guild.member(message.mentions.users.first()).addRole("544294361383305245");
-                message.guild.member(message.mentions.users.first()).removeRole("544293390112784384");
+            if (umember.roles.has("544293390112784384")) {
+                umember.addRole("544294361383305245");
+                umember.removeRole("544293390112784384");
             }
         }
     }
