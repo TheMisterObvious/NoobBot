@@ -94,11 +94,11 @@ client.on("message", message => {
             if (!message.mentions.users.size === 0) {
                 message.channel.send("**Merci d'entrer la mention d'un utilisateur !**");
             }
-            if (message.guild.member(message.mentions.users.first()).roles("544294721254850605")) {
+            if (message.guild.member(message.mentions.users.first()).roles.has("544294721254850605")) {
                 message.guild.member(message.mentions.users.first()).addRole("544294361383305245");
                 message.guild.member(message.mentions.users.first()).removeRole("544294721254850605");
             }
-            if (message.guild.member(message.mentions.users.first()).roles("544294361383305245")) {
+            if (message.guild.member(message.mentions.users.first()).roles.has("544294361383305245")) {
                 message.guild.member(message.mentions.users.first()).addRole("544293390112784384");
                 message.guild.member(message.mentions.users.first()).removeRole("544294361383305245");
             }
@@ -110,11 +110,11 @@ client.on("message", message => {
             if (!message.mentions.users.size === 0) {
                 message.channel.send("**Merci d'entrer la mention d'un utilisateur !**");
             }
-            if (message.guild.member(message.mentions.users.first()).roles("544294361383305245")) {
+            if (message.guild.member(message.mentions.users.first()).roles.has("544294361383305245")) {
                 message.guild.member(message.mentions.users.first()).addRole("544294721254850605");
                 message.guild.member(message.mentions.users.first()).removeRole("544294361383305245");
             }
-            if (message.guild.member(message.mentions.users.first()).roles("544293390112784384")) {
+            if (message.guild.member(message.mentions.users.first()).roles.has("544293390112784384")) {
                 message.guild.member(message.mentions.users.first()).addRole("544294361383305245");
                 message.guild.member(message.mentions.users.first()).removeRole("544293390112784384");
             }
