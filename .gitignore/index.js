@@ -73,17 +73,27 @@ client.on("message", message => {
 //Clear
 
 client.on("message", message => {
-    if (message.content.startsWith(prefix +"clear" || prefix +"purge")) {
-        if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-            message.channel.send("**Vous n'avez pas la permission \`MANAGE_MESSAGES\` !**");
+    if(message.content.startsWith(prefix +"clear")) {
+        if(!message.member.hasPermission("MANAGE_ROLES")) {
+            message.channel.send("**Vous n'avez pas la permission d'éxécuté cette commande !**");
+        }
+        var args = message.content.substr(8);
+        if(args.length === 0) {
+            message.channel.send("**Merci de préciser le nombre de messages à supprimé !**");
         } else {
-        var clear = message.content.substring(8);
-        clear++;
-            
-        message.channel.bulkDelete(3);
+            var msg;
+            if(args.length === 1){
+                msg = 2;
+            } else {
+                msg = parseInt(args[1]);
+            }
+            message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+            message.channel.send("**Les messages ont été supprimés avec succès :white_check_mark: !**");
         }
     }
 });
+
+//Systeme faction
 
 client.on("message", message => {
     if (message.content.startsWith(prefix +"f")) {
