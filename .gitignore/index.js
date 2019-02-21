@@ -105,9 +105,7 @@ client.on("message", message => {
 
 client.on("message", message => {
     if (message.content.startsWith(prefix +"f")) {
-        console.log("f ok");
         if (message.content.substring(4).startsWith("promote")) {
-            console.log("promote ok")
             if (!message.member.hasPermission("MANAGE_ROLES")) {
                 message.channel.send("**Vous n'avez pas la permission \`MANAGE_ROLES\` !**");
             }
@@ -115,18 +113,25 @@ client.on("message", message => {
                 message.channel.send("**Merci d'entrer la mention d'un utilisateur !**");
             }
             var pmember = message.mentions.members.first();
+            const pembed = new Discord.RichEmbed()
+            .setTitle("⬆️ Rank Up ⬆️")
+            .setColor("#00ff00")
+            .setDescription("Bravo, "+ pmember +" tu passe Officier de la faction ! \ntest")
+            .setThumbnail("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/180/top-hat_1f3a9.png")
+            .setFooter("Bot de TheMisterObvious");
             
             if (pmember.roles.has(recruitRole)) {
                 pmember.addRole(memberRole);
                 pmember.removeRole(recruitRole);
+                message.delete(1);
+                message.channel.send
             }
             if (pmember.roles.has(memberRole)) {
-                console.log("membre -> officier");
                 pmember.addRole(officerRole);
                 pmember.removeRole(memberRole);
             }
         }
-        if (message.content.substring(4) === "unmote") {
+        if (message.content.substring(4).startsWith("unmote")) {
             if (!message.member.hasPermission("MANAGE_ROLES")) {
                 message.channel.send("**Vous n'avez pas la permission \`MANAGE_ROLES\` !**");
             }
