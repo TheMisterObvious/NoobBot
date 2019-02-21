@@ -124,7 +124,7 @@ client.on("message", message => {
                 pmember.addRole(memberRole);
                 pmember.removeRole(recruitRole);
                 message.delete(1);
-                message.channel.send
+                message.channel.send(pembed);
             }
             if (pmember.roles.has(memberRole)) {
                 pmember.addRole(officerRole);
