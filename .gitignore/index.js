@@ -123,6 +123,7 @@ client.on("message", message => {
                 pmember.addRole(officerRole);
                 pmember.removeRole(memberRole);
             }
+            console.log("ok");
         }
         if (message.content.substring(4) === "unmote") {
             if (!message.member.hasPermission("MANAGE_ROLES")) {
