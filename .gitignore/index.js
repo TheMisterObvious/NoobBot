@@ -105,7 +105,9 @@ client.on("message", message => {
 
 client.on("message", message => {
     if (message.content.startsWith(prefix +"f")) {
+        console.log("f ok");
         if (message.content.substring(4) === "promote") {
+            console.log("promote ok")
             if (!message.member.hasPermission("MANAGE_ROLES")) {
                 message.channel.send("**Vous n'avez pas la permission \`MANAGE_ROLES\` !**");
             }
