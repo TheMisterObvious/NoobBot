@@ -106,7 +106,7 @@ client.on("message", message => {
 client.on("message", message => {
     if (message.content.startsWith(prefix +"f")) {
         console.log("f ok");
-        if (message.content.substring(4) === "promote") {
+        if (message.content.substring(4).startsWith("promote")) {
             console.log("promote ok")
             if (!message.member.hasPermission("MANAGE_ROLES")) {
                 message.channel.send("**Vous n'avez pas la permission \`MANAGE_ROLES\` !**");
@@ -116,7 +116,7 @@ client.on("message", message => {
             }
             var pmember = message.mentions.members.first();
             
-            if (message.member.roles.has(chiefRole)) {
+            if (pmember.roles.has(recruitRole)) {
                 pmember.addRole(memberRole);
                 pmember.removeRole(recruitRole);
             }
@@ -125,7 +125,6 @@ client.on("message", message => {
                 pmember.addRole(officerRole);
                 pmember.removeRole(memberRole);
             }
-            console.log("ok");
         }
         if (message.content.substring(4) === "unmote") {
             if (!message.member.hasPermission("MANAGE_ROLES")) {
