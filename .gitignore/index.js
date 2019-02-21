@@ -116,6 +116,13 @@ client.on("message", message => {
             const pembedrm = new Discord.RichEmbed()
             .setTitle("⬆️ Rank Up ⬆️")
             .setColor("#00ff00")
+            .setDescription("Bravo, "+ pmember +" tu passe **Membre** de la faction ! \n \n__Ranker:__ "+ message.author)
+            .setThumbnail("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/180/graduation-cap_1f393.png")
+            .setFooter("Bot de TheMisterObvious");
+            
+            const pembedmo = new Discord.RichEmbed()
+            .setTitle("⬆️ Rank Up ⬆️")
+            .setColor("0000ff")
             .setDescription("Bravo, "+ pmember +" tu passe **Officier** de la faction ! \n \n__Ranker:__ "+ message.author)
             .setThumbnail("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/180/top-hat_1f3a9.png")
             .setFooter("Bot de TheMisterObvious");
@@ -129,6 +136,8 @@ client.on("message", message => {
             if (pmember.roles.has(memberRole)) {
                 pmember.addRole(officerRole);
                 pmember.removeRole(memberRole);
+                message.delete(1);
+                message.chanel.send(pembedmo);
             }
         }
         if (message.content.substring(4).startsWith("unmote")) {
