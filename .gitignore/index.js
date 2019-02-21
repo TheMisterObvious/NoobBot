@@ -113,10 +113,10 @@ client.on("message", message => {
                 message.channel.send("**Merci d'entrer la mention d'un utilisateur !**");
             }
             var pmember = message.mentions.members.first();
-            const pembed = new Discord.RichEmbed()
+            const pembedrm = new Discord.RichEmbed()
             .setTitle("⬆️ Rank Up ⬆️")
             .setColor("#00ff00")
-            .setDescription("Bravo, "+ pmember +" tu passe Officier de la faction ! \ntest")
+            .setDescription("Bravo, "+ pmember +" tu passe **Officier** de la faction ! \n \n__Ranker:__ "+ message.author)
             .setThumbnail("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/180/top-hat_1f3a9.png")
             .setFooter("Bot de TheMisterObvious");
             
@@ -124,7 +124,7 @@ client.on("message", message => {
                 pmember.addRole(memberRole);
                 pmember.removeRole(recruitRole);
                 message.delete(1);
-                message.channel.send(pembed);
+                message.channel.send(pembedrm);
             }
             if (pmember.roles.has(memberRole)) {
                 pmember.addRole(officerRole);
