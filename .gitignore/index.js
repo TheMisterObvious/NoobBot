@@ -116,7 +116,7 @@ client.on("message", message => {
             }
             var pmember = message.mentions.members.first();
             
-            if (pmember.role.has(544294721254850605)) {
+            if (pmember.roles.has(message.guild.roles.get("544294721254850605"))) {
                 pmember.addRole(memberRole);
                 pmember.removeRole(recruitRole);
             }
