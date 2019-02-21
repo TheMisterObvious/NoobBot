@@ -3,6 +3,14 @@ const client = new Discord.Client();
 
 var prefix = "n!";
 var mention = "<@544560443776040980>";
+var unverifiedRole = "544600219396997141";
+var verifiedRole = "544580348508373002";
+var botRole = "544598583605985291";
+var visitorRole = "544598999177625660";
+var recruitRole = "544294721254850605";
+var memberRole = "544294361383305245";
+var officerRole = "544293390112784384";
+var chiefRole = "544293096939192320";
 
 client.on("ready", () => {
 var memberCount = client.users.size;
@@ -106,13 +114,14 @@ client.on("message", message => {
             }
             var pmember = message.mentions.members.first();
             
-            if (pmember.roles.has("544294721254850605")) {
-                pmember.addRole("544294361383305245");
-                pmember.removeRole("544294721254850605");
+            if (pmember.roles.has(recruitRole)) {
+                pmember.addRole(memberRole);
+                pmember.removeRole(recruitRole);
             }
-            if (pmember.roles.has("544294361383305245")) {
-                pmember.addRole("544293390112784384");
-                pmember.removeRole("544294361383305245");
+            if (pmember.roles.has(memberRole)) {
+                console.log("membre -> officier");
+                pmember.addRole(officerRole);
+                pmember.removeRole(memberRole);
             }
         }
         if (message.content.substring(4) === "unmote") {
