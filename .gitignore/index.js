@@ -161,4 +161,10 @@ client.on("message", message => {
     }
 });
 
+client.on("message", message => {
+    if message.content("test") {
+        message.guild.roles.get(officerRole).members.map(m=>m.user.tag);
+    }
+});
+
 client.login(process.env.TOKEN);
