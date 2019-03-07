@@ -163,7 +163,7 @@ client.on("message", message => {
 
 client.on("message", message => {
     if (message.content === "test") {
-        var test = message.guild.member.roles.exists('id' : '415665311828803584');
+        var test = message.guild.member.roles.exists(officerRole);
         message.channel.send(test);
     }
 });
