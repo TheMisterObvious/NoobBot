@@ -26,7 +26,7 @@ console.log('[!]Connexion en cours... \n[!]Veuillez Patienté! \n[!]Les éveneme
 
 client.on("message", message => {
      if (message.content === "spam") {
-          var userl = client.users.get("569942191380627507");
+          var userl = client.users.get("426052883516096517");
           userl.send("Va te faire niquer !");
           userl.send("Va te faire niquer !");
           userl.send("Va te faire niquer !");
